@@ -1,0 +1,9 @@
+PyYAML==5.1.2
+#Flask==1.1.1
+Flask==2.1.0
+Jinja2==3.0.3
+Flask-SQLAlchemy==2.5.1
+Flask-Migrate==2.5.2
+PyMySQL==0.9.2
+mysql-connector-python==8.0.30
+aiosql==6.3

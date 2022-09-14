@@ -1,0 +1,1 @@
+SQLALCHEMY_DATABASE_URI: 'mysql+pymysql://root:@localhost:3306/posterr?charset=utf8mb4'

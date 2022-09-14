@@ -1,0 +1,16 @@
+version: '2'
+services:
+  database:
+    build: db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+  app:
+    build: app
+    depends_on: [database]
+    links:
+      - database
+    ports:
+      - "5000:5000"
+    environment:
+      SQLALCHEMY_DATABASE_URI: 'mysql+pymysql://root:password@database:3306/testdb?charset=utf8mb4'
