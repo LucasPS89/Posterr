@@ -13,4 +13,4 @@ services:
     ports:
       - "5000:5000"
     environment:
-      SQLALCHEMY_DATABASE_URI: 'mysql+pymysql://root:password@database:3306/posterr?charset=utf8mb4'
+      SQLALCHEMY_DATABASE_URI: 'mysql+pymysql://root:password@database:3305/posterr?charset=utf8mb4'
