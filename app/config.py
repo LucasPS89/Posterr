@@ -16,11 +16,4 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-#MySQL Connection
-mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    database="posterr"
-)
-
 migrate = Migrate(app, db)
