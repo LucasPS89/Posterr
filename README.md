@@ -1,21 +1,22 @@
 # LUCAS PIRES DE SOUZA
 
-## Prerequisites
-1. Python 3.x
-2. MySQL database
-3. docker & docker-compose
+## Docker compose Running
+Make sure if you have Docker application Running locally.
 
-## Configuration
-
-Located under the yaml file.
-
-- **SQLALCHEMY_DATABASE_URI** MySQL db connection url
-
-the config value can be set through environment variable **SQLALCHEMY_DATABASE_URI**.
+Run:
+```bash
+docker-compose up --build
+```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Local Running
 
-Go to app folder.
+### Prerequisites
+
+    1. Python 3.x
+    2. MySQL database
+
+Go to app (.posterr\app) folder.
 
 Install requirements:
 
@@ -39,6 +40,18 @@ Run application
 python app.py
 ```
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Configuration
+
+Located under the yaml file.
+
+- **SQLALCHEMY_DATABASE_URI** MySQL db connection url
+
+the config value can be set through environment variable **SQLALCHEMY_DATABASE_URI**.
+
+
+
 or override with environment variable
 
 ```bash
@@ -46,15 +59,15 @@ SQLALCHEMY_DATABASE_URI=xxx python app.py
 ```
 
 
-## Docker compose Running
-Make sure if you have Docker application Running locally
 
-Run:
-```bash
-docker-compose up --build
-```
-
+<br />
 
 ## Test and Verification
 
 Import the postman collection in docs folder to test and verify.
+
+<br />
+
+# Critique
+- Add automated tests the whole application instead of testing only via Postman
+- 

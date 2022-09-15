@@ -1,11 +1,7 @@
-#!/usr/bin/env python
-from turtle import home
-from models.models import User, Post
+from models.User import User
 from config import db
 from werkzeug.exceptions import NotFound
-from sqlalchemy.orm import sessionmaker
 from services.queries import queries
-
 
 def get(user_id=None):
     '''
@@ -14,34 +10,13 @@ def get(user_id=None):
     '''
     if user_id:
         user =  User.query.get(user_id)
-        qty = get_total_posts(user_id)
-        user.set_total_posts(qty)
         return user
     else:         
         return User.query.all()
 
-def get_user_posts(user_id=None):
-    homepage = queries.get_homepage(db.engine.raw_connection(), user_id=user_id, )
-    posts=[]
-    for p in homepage:
-        post = {
-            'user_id':  p[0],
-            'post': p[1],
-            'quote_from_id': p[2],
-            'quote_from': p[3],
-            'repost_from_id': p[4],
-            'repost_from': p[5],
-            'datetime_creation': p[6]
-        }
-        posts.append(post)
-    return posts
-
-
-
-
 def post(body):
     '''
-    Create entity with body
+    Create new user
     :param body: request body
     :returns: the created entity
     '''
@@ -62,7 +37,7 @@ def post(body):
 
 def put(body):
     '''
-    Update entity by id
+    Update user by id
     :param body: request body
     :returns: the updated entity
     '''
@@ -77,7 +52,7 @@ def put(body):
 
 def delete(id):
     '''
-    Delete entity by id
+    Delete user by id
     :param id: the entity id
     :returns: the response
     '''
@@ -88,13 +63,8 @@ def delete(id):
         return {'success': True}
     raise NotFound('no such entity found with id=' + str(id))
 
-
 def check_if_exists(username):
     existing_users = db.session.query(User).filter(User.username==username).all()
     if len(existing_users) > 0:
         return True
     return False
-        
-def get_total_posts(user_id:int) -> int:
-    qty = queries.get_total_posts(db.engine.raw_connection(), user_id=user_id)
-    return qty

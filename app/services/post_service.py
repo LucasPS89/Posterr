@@ -1,12 +1,8 @@
-#!/usr/bin/env python
-from turtle import home
-from models.models import User, Post
+from models.User import User
+from models.Post import Post
 from config import db
-from werkzeug.exceptions import NotFound
-from sqlalchemy.orm import sessionmaker
 from services.queries import queries
 from sqlalchemy import desc
-
 
 def get_homepage(user_id=None, start_date=None, end_date=None, posts_per_page=10, page=1):
     my_query = Post.query
@@ -33,11 +29,22 @@ def post(body, repost_from_id=None, quote_from_id=None):
     if quote_from_id:
         post.quote_from_id = quote_from_id
 
+    #User cannot repost reposts, only original posts
+    if repost_from_id:
+        repost_from = Post.query.get(repost_from_id)
+        if repost_from.repost_from_id:
+            raise Exception(f"It's not allowed to repost a repost. You can only repost original posts or quotes") 
+
+    #Use cannot quote others quotes, only reposts or posts
+    if quote_from_id:
+        quote_from = Post.query.get(quote_from_id)
+        if quote_from.quote_from_id:
+            raise Exception(f"It's not allowed to quote a quote. You can only quote reposts or original posts") 
     
     if len(post.text) > 777:
         raise Exception(f"The post text has more than 777 characters") 
-    if len(post.text) < 1:
-        raise Exception(f"The post text has less than 1 characters")         
+    if len(post.text) < 1 and not repost_from_id :
+        raise Exception(f"To post or quote, the text should have at least 1 character.")         
     if not post.user_id:
         raise Exception(f"The post has not user_id specified") 
     if not check_if_user_exists(post.user_id):
@@ -63,7 +70,6 @@ def get(post_id):
 def get_total_posts_today(user_id:int) -> int:
     qty = queries.get_total_posts_today(db.engine.raw_connection(), user_id=user_id)
     return qty
-
 
 def check_if_user_exists(user_id:int) -> bool:
     if not User.query.get(user_id):

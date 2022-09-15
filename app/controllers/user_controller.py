@@ -1,8 +1,8 @@
-#!/usr/bin/env python
 from flask import Blueprint, jsonify, request
 import services.user_service as user_service
 import services.post_service as post_service
-from models.models import User, Post
+from models.Post import Post
+from models.User import User
 from werkzeug.exceptions import HTTPException
 import json
 
@@ -52,7 +52,7 @@ def api_get_posts(id):
 
 @api_user.route('/users/<string:id>', methods=['DELETE'])
 def api_delete(id):
-    ''' Delete entity by id'''
+    ''' Delete user by id'''
     res = user_service.delete(id)
     return jsonify(res)
 

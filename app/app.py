@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 from config import app
 from controllers.user_controller import api_user
 from controllers.post_controller import api_post

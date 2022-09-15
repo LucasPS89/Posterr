@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 from flask import Blueprint, jsonify, request
 import services.user_service as user_service
 import services.post_service as post_service
@@ -36,7 +35,7 @@ def api_get_homepage():
         validate_date(end_date)
 
     #Load Posts 
-    posts = user_service.get_homepage(user_id, start_date, end_date, 10, page)
+    posts = post_service.get_homepage(user_id, start_date, end_date, 10, page)
     return jsonify([post.as_dict() for post in posts])
 
 #Create POST
