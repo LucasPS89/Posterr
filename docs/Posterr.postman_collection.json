@@ -6,58 +6,37 @@
 	},
 	"item": [
 		{
-			"name": "POST",
+			"name": "1 - HOMEPAGE",
 			"item": [
 				{
-					"name": "/posts",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"text\": \"Meu novo Post via swagger1111111\",\r\n    \"user_id\": 8\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:5000/posts",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "5000",
-							"path": [
-								"posts"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/posts/{id}",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
+					"name": "Homepage (All)",
 					"request": {
 						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"text\": \"Meu novo Post via swagger\",\r\n    \"user_id\": 8\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
+						"header": [
+							{
+								"key": "user_id",
+								"value": "2",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "page",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "start_date",
+								"value": "2022-01-01",
+								"type": "text"
+							},
+							{
+								"key": "end_date",
+								"value": "2022-12-31",
+								"type": "text"
 							}
-						},
+						],
 						"url": {
-							"raw": "http://127.0.0.1:5000/posts/3",
+							"raw": "http://127.0.0.1:5000/homepage",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -67,74 +46,7 @@
 							],
 							"port": "5000",
 							"path": [
-								"posts",
-								"3"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/posts/{id}/quote",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"text\": \"Quote do post 3\",\r\n    \"user_id\": 8\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:5000/posts/3/quote",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "5000",
-							"path": [
-								"posts",
-								"3",
-								"quote"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/posts/{id}/repost",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"text\": \"Repost do repost 2\",\r\n    \"user_id\": 8\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:5000/posts/2/repost",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "5000",
-							"path": [
-								"posts",
-								"2",
-								"repost"
+								"homepage"
 							]
 						}
 					},
@@ -183,58 +95,14 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Homepage (All)",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "user_id",
-								"value": "2",
-								"type": "text",
-								"disabled": true
-							},
-							{
-								"key": "page",
-								"value": "1",
-								"type": "text"
-							},
-							{
-								"key": "start_date",
-								"value": "2022-01-01",
-								"type": "text"
-							},
-							{
-								"key": "end_date",
-								"value": "2022-12-31",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://127.0.0.1:5000/homepage",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "5000",
-							"path": [
-								"homepage"
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},
 		{
-			"name": "USER",
+			"name": "2 - USER",
 			"item": [
 				{
-					"name": "get all users",
+					"name": "List all users",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -256,12 +124,12 @@
 					"response": []
 				},
 				{
-					"name": "get user by id",
+					"name": "Get user by Id",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/users/1",
+							"raw": "http://127.0.0.1:5000/users/2",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -272,7 +140,37 @@
 							"port": "5000",
 							"path": [
 								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the last posts of a given user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "page",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/users/2/posts",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
 								"1"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"2",
+								"posts"
 							]
 						}
 					},
@@ -285,7 +183,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"NOVO3\"\r\n}",
+							"raw": "{\r\n    \"username\": \"Elizabeth2002\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -304,6 +202,369 @@
 							"port": "5000",
 							"path": [
 								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3 - POST",
+			"item": [
+				{
+					"name": "Creating new Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"Hi, My name is Carol and Im using Posterr\",\r\n    \"user_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/posts",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Post by Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"Meu novo Post via swagger\",\r\n    \"user_id\": 8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/posts/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"posts",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Quoting a Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"Glad to have you here\",\r\n    \"user_id\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/posts/4/quote",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"posts",
+								"4",
+								"quote"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reposting a post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"\",\r\n    \"user_id\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/posts/3/repost",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"posts",
+								"3",
+								"repost"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4 - TESTS",
+			"item": [
+				{
+					"name": "User with special characters",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"John$$$$\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Username with more than 14 characters",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"RealBigUserName\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Duplicated username",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Carol\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Not allowing more than 5 posts a day (Hit send multiple times)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"I'm obsessed with Posterr and I can't stop posting\",\r\n    \"user_id\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/posts",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post with more than 777 characters",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"Hello, everyone! This is the LONGEST TEXT EVER! I was inspired by the various other 'longest texts ever' on the internet, and I wanted to make my own. So here it is! This is going to be a WORLD RECORD! This is actually my third attempt at doing this. The first time, I didn't save it. The second time, the Neocities editor crashed. Now I'm writing this in Notepad, then copying it into the Neocities editor instead of typing it directly in the Neocities editor to avoid crashing. It sucks that my past two attempts are gone now. Those actually got pretty long. Not the longest, but still pretty long. I hope this one won't get lost somehow. Anyways, let's talk about WAFFLES! I like waffles. Waffles are cool. Waffles is a funny word. There's a Teen Titans Go episode called 'Waffles' where the word 'Waffles' is said a hundred-something times. It's pretty annoying. There's also a Teen Titans Go episode about Pig Latin. Don't know what Pig Latin is? It's a language where you take all the consonants before the first vowel, move them to the end, and add '-ay' to the end. If the word begins with a vowel, you just add '-way' to the end. For example, 'Waffles' becomes 'Afflesway'. I've been speaking Pig Latin fluently since the fourth grade, so it surprised me when I saw the episode for the first time. I speak Pig Latin with my sister sometimes. It's pretty fun. I like speaking it in public so that everyone around us gets confused. That's never actually happened before, but if it ever does, 'twill be pretty funny. By the way, 'twill' is a word I invented recently, and it's a contraction of 'it will'. I really hope it gains popularity in the near future, because 'twill' is WAY more fun than saying 'it'll'. 'It'll' is too boring. Nobody likes boring. This is nowhere near being the longest text ever, but eventually it will be! I might still be writing this a decade later, who knows? But right now, it's not very long. But I'll just keep writing until it is the longest! Have you ever heard the song 'Dau Dau' by Awesome Scampis? It's an amazing song. Look it up on YouTube! I play that song all the time around my sister! It drives her crazy, and I love it. Another way I like driving my sister crazy is by speaking my own made up language to her. She hates the languages I make! The only language that we both speak besides English is Pig Latin. I think you already knew that. Whatever. I think I'm gonna go for now. Bye! \",\r\n    \"user_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/posts",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reposting a repost",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"I'm trying to repost a repost\",\r\n    \"user_id\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/posts/2/repost",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"posts",
+								"2",
+								"repost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Quoting a quote",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"I'm trying to quote a quote\",\r\n    \"user_id\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/posts/3/quote",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"posts",
+								"3",
+								"quote"
 							]
 						}
 					},

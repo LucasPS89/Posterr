@@ -10,8 +10,9 @@
             "type": "python",
             "request": "launch",
             //"program": "${file}",
-            "program": "app\\app.py",
+            "program": "app.py",
             "console": "integratedTerminal",
+            "cwd": "app",
             "justMyCode": true
         }
     ]

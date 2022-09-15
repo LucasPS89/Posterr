@@ -7,7 +7,7 @@ import mysql.connector
 
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
-config_obj = yaml.load(open('./app/config.yaml'), Loader=yaml.Loader)
+config_obj = yaml.load(open('config.yaml'), Loader=yaml.Loader)
 
 # override the environment variables
 database_url = os.getenv('SQLALCHEMY_DATABASE_URI')
