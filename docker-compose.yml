@@ -4,7 +4,7 @@ services:
     build: db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 
+      MYSQL_ROOT_PASSWORD: password
   app:
     build: app
     depends_on: [database]
@@ -13,4 +13,4 @@ services:
     ports:
       - "5000:5000"
     environment:
-      SQLALCHEMY_DATABASE_URI: 'mysql+pymysql://root:@database:3306/testdb?charset=utf8mb4'
+      SQLALCHEMY_DATABASE_URI: 'mysql+pymysql://root:password@database:3306/posterr?charset=utf8mb4'
