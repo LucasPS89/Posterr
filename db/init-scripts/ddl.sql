@@ -1,12 +1,4 @@
-/*
-CREATE TABLE `users` (
-    `id` bigint(20) NOT NULL AUTO_INCREMENT,
-    `handle` varchar(200) NOT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
-SET PASSWORD FOR root@localhost=PASSWORD('')
-*/
-
+drop table user;
 CREATE TABLE if not exists user(
     id bigint(20) NOT NULL AUTO_INCREMENT,
     username varchar(14) NOT NULL,
@@ -14,6 +6,7 @@ CREATE TABLE if not exists user(
     PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+drop table post;
 CREATE TABLE if not exists post(
     id bigint(20) NOT NULL AUTO_INCREMENT,
     repost_from_id bigint(20), 
