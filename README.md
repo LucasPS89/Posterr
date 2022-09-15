@@ -47,6 +47,7 @@ SQLALCHEMY_DATABASE_URI=xxx python app.py
 
 
 ## Docker compose Running
+Make sure if you have Docker application Running locally
 
 Run:
 ```bash

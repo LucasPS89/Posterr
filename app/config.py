@@ -5,8 +5,6 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 import mysql.connector
-from flask_swagger_ui import get_swaggerui_blueprint
-import sqlite3
 
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
