@@ -9,3 +9,4 @@ app.register_blueprint(api_post)
 if __name__ == '__main__':
     ''' run application '''
     app.run(host='0.0.0.0', port=5000)
+    print("DB Config: " + app.config['SQLALCHEMY_DATABASE_URI'])
